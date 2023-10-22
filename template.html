@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Door Lock Control</title>
+</head>
+<body>
+    <h1>Door Lock Control</h1>
+    <button onclick="unlockDoor()">Unlock</button>
+    <script>
+        function unlockDoor() {
+            fetch('/unlock')
+                .then(response => response.text())
+                .then(message => alert(message));
+        }
+    </script>
+</body>
+</html>
