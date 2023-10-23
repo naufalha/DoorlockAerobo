@@ -4,6 +4,7 @@ import time
 
 # Configure GPIO pins for the lock
 LOCK_PIN = 17
+output_pin = 18
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(LOCK_PIN, GPIO.OUT)
 
@@ -13,6 +14,7 @@ def on_message(client, userdata, message):
 
 def unlock_door():
     GPIO.output(LOCK_PIN, GPIO.HIGH)
+    GPIO.output(output_pin, GPIO.HIGH)
     time.sleep(2)  # Adjust the delay as needed
     GPIO.output(LOCK_PIN, GPIO.LOW)
 
